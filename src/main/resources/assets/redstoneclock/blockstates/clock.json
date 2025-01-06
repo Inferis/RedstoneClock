@@ -1,0 +1,10 @@
+{
+    "variants": {
+        "powered=true": {
+            "model": "redstoneclock:block/clock_powered"
+        },
+        "powered=false": {
+            "model": "redstoneclock:block/clock_unpowered"
+        }
+    }
+}

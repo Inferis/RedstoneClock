@@ -1,0 +1,41 @@
+{
+	"schemaVersion": 1,
+	"id": "redstoneclock",
+	"version": "${version}",
+	"name": "RedstoneClock",
+	"description": "This mod implements a simple but configurable redstone clock.",
+	"authors": [
+		"Inferis"
+	],
+	"contact": {
+		"homepage": "https://inferis.org/",
+		"sources": "https://github.com/Inferis/redstone-clock"
+	},
+	"license": "MIT",
+	"icon": "assets/redstoneclock/icon.png",
+	"environment": "*",
+	"entrypoints": {
+		"main": [
+			"redstoneclock.RedstoneClock"
+		],
+		"client": [
+			"redstoneclock.RedstoneClockClient"
+		]
+	},
+	"mixins": [
+		"redstoneclock.mixins.json",
+		{
+			"config": "redstoneclock.client.mixins.json",
+			"environment": "client"
+		}
+	],
+	"depends": {
+		"fabricloader": ">=0.16.9",
+		"minecraft": "~1.21.4",
+		"java": ">=21",
+		"fabric-api": "*"
+	},
+	"suggests": {
+		"another-mod": "*"
+	}
+}
