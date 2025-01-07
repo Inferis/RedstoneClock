@@ -5,8 +5,8 @@
         "south": "redstoneclock:block/clock_output_powered",
         "east": "redstoneclock:block/clock_output_powered",
         "west": "redstoneclock:block/clock_output_powered",
-        "up": "redstoneclock:block/clock_powered",
-        "down": "redstoneclock:block/clock_powered",
+        "up": "redstoneclock:block/clock_unpowered",
+        "down": "redstoneclock:block/clock_unpowered",
         "particle": "redstoneclock:block/clock_output_powered"
     }
 }
