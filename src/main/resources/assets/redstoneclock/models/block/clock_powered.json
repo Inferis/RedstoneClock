@@ -1,7 +1,13 @@
 {
-    "parent": "block/cube_all",
+    "parent": "block/cube",
     "textures": {
-        "all": "redstoneclock:block/clock_powered"
+        "north": "redstoneclock:block/clock_input_powered",
+        "south": "redstoneclock:block/clock_output_powered",
+        "east": "redstoneclock:block/clock_output_powered",
+        "west": "redstoneclock:block/clock_output_powered",
+        "up": "redstoneclock:block/clock_powered",
+        "down": "redstoneclock:block/clock_powered",
+        "particle": "redstoneclock:block/clock_output_powered"
     }
 }
 
