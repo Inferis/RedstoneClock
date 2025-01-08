@@ -2,10 +2,11 @@ package redstoneclock.block;
 
 import net.minecraft.block.BlockState;
 import net.minecraft.block.entity.BlockEntity;
+import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.state.property.Properties;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
-import redstoneclock.RedstoneClock;
+import redstoneclock.networking.OpenEditorS2CPayload;
 
 public class ClockBlockEntity extends BlockEntity {
     private int signalStrength = 15;
@@ -39,5 +40,14 @@ public class ClockBlockEntity extends BlockEntity {
             cycle = -1;
             world.setBlockState(pos, state.with(Properties.LIT, false));
         }
+    }
+
+    public OpenEditorS2CPayload getEditorPayload(BlockPos pos) {
+        return new OpenEditorS2CPayload(pos, activeInterval, inactiveInterval);
+    }
+
+    public void updateIntervals(int activeInterval, int inactiveInterval) {
+        this.activeInterval = activeInterval;
+        this.inactiveInterval = inactiveInterval;
     }
 }
