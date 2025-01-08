@@ -2,6 +2,7 @@
     "block.redstoneclock.clock": "Redstone Clock",
     "screen.redstoneclock.clock.title": "Redstone Clock",
     "screen.redstoneclock.clock.active_interval": "Active Interval:",
-    "screen.redstoneclock.clock.inactive_interval": "Inactive Interval:"
+    "screen.redstoneclock.clock.inactive_interval": "Inactive Interval:",
+    "screen.redstoneclock.clock.signal_strength": "Output Signal Strength:"
 
 }

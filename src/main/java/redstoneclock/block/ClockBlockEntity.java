@@ -8,10 +8,12 @@ import net.minecraft.state.property.Properties;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import redstoneclock.networking.OpenEditorS2CPayload;
+import redstoneclock.networking.SaveIntervalsC2SPayload;
 
 public class ClockBlockEntity extends BlockEntity {
     private final String ACTIVE_INTERVAL_KEY = "active_interval";
     private final String INACTIVE_INTERVAL_KEY = "inactive_interval";
+    private final String SIGNAL_STRENGTH_KEY = "signal_strength";
     
     private int signalStrength = 15;
     private int cycle = 0;
@@ -47,12 +49,13 @@ public class ClockBlockEntity extends BlockEntity {
     }
 
     public OpenEditorS2CPayload getEditorPayload(BlockPos pos) {
-        return new OpenEditorS2CPayload(pos, activeInterval, inactiveInterval);
+        return new OpenEditorS2CPayload(pos, activeInterval, inactiveInterval, signalStrength);
     }
 
-    public void updateIntervals(int activeInterval, int inactiveInterval) {
-        this.activeInterval = activeInterval;
-        this.inactiveInterval = inactiveInterval;
+    public void updateFromPayload(SaveIntervalsC2SPayload payload) {
+        this.activeInterval = payload.activeInterval();
+        this.inactiveInterval = payload.inactiveInterval();
+        this.signalStrength = payload.signalStrength();
         this.markDirty();
     }
 
@@ -66,6 +69,9 @@ public class ClockBlockEntity extends BlockEntity {
         if (nbt.contains(INACTIVE_INTERVAL_KEY)) {
             inactiveInterval = nbt.getInt(INACTIVE_INTERVAL_KEY);
         }
+        if (nbt.contains(SIGNAL_STRENGTH_KEY)) {
+            signalStrength = nbt.getInt(SIGNAL_STRENGTH_KEY);
+        }
     }
     
     @Override
@@ -74,5 +80,6 @@ public class ClockBlockEntity extends BlockEntity {
 
         nbt.putInt(ACTIVE_INTERVAL_KEY, activeInterval);
         nbt.putInt(INACTIVE_INTERVAL_KEY, inactiveInterval);
+        nbt.putInt(SIGNAL_STRENGTH_KEY, signalStrength);
     }
 }

@@ -42,7 +42,7 @@ public class RedstoneClock implements ModInitializer {
 
 	public static void receiveSaveIntervalsPayload(SaveIntervalsC2SPayload payload, ServerPlayNetworking.Context context) {
         if (context.player().getWorld().getBlockEntity(payload.blockPos()) instanceof ClockBlockEntity clockBlockEntity) {
-			clockBlockEntity.updateIntervals(payload.activeInterval(), payload.inactiveInterval());
+			clockBlockEntity.updateFromPayload(payload);
 		}
 	}
 }
