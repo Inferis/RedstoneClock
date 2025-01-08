@@ -1,10 +1,10 @@
 {
     "variants": {
-        "powered=true,lit=true,facing=north": {
-            "model": "redstoneclock:block/clock_powered_lit",
+        "powered=true,active=true,facing=north": {
+            "model": "redstoneclock:block/clock_powered_active",
             "uvlock": true
         },
-        "powered=true,lit=false,facing=north": {
+        "powered=true,active=false,facing=north": {
             "model": "redstoneclock:block/clock_powered",
             "uvlock": true
         },
@@ -12,12 +12,12 @@
             "model": "redstoneclock:block/clock_unpowered",
             "uvlock": true
         },
-        "powered=true,lit=true,facing=south": {
-            "model": "redstoneclock:block/clock_powered_lit",
+        "powered=true,active=true,facing=south": {
+            "model": "redstoneclock:block/clock_powered_active",
             "y": 180,
             "uvlock": true
         },
-        "powered=true,lit=false,facing=south": {
+        "powered=true,active=false,facing=south": {
             "model": "redstoneclock:block/clock_powered",
             "y": 180,
             "uvlock": true
@@ -27,12 +27,12 @@
             "y": 180,
             "uvlock": true
         },
-        "powered=true,lit=true,facing=east": {
-            "model": "redstoneclock:block/clock_powered_lit",
+        "powered=true,active=true,facing=east": {
+            "model": "redstoneclock:block/clock_powered_active",
             "y": 90,
             "uvlock": true
         },
-        "powered=true,lit=false,facing=east": {
+        "powered=true,active=false,facing=east": {
             "model": "redstoneclock:block/clock_powered",
             "y": 90,
             "uvlock": true
@@ -42,12 +42,12 @@
             "y": 90,
             "uvlock": true
         },
-        "powered=true,lit=true,facing=west": {
-            "model": "redstoneclock:block/clock_powered_lit",
+        "powered=true,active=true,facing=west": {
+            "model": "redstoneclock:block/clock_powered_active",
             "y": 270,
             "uvlock": true
         },
-        "powered=true,lit=false,facing=west": {
+        "powered=true,active=false,facing=west": {
             "model": "redstoneclock:block/clock_powered",
             "y": 270,
             "uvlock": true

@@ -29,20 +29,20 @@ public class ClockBlockEntity extends BlockEntity {
     public void tick(World world, BlockPos pos, BlockState state) {
         if (state.get(Properties.POWERED)) {
             cycle = (cycle + 1) % (activeInterval + inactiveInterval);
-            var isLit = state.get(Properties.LIT);
+            var isActive = state.get(Properties.ACTIVE);
             if (cycle < activeInterval) {
-                if (!isLit) {
-                    world.setBlockState(pos, state.with(Properties.LIT, true));
+                if (!isActive) {
+                    world.setBlockState(pos, state.with(Properties.ACTIVE, true));
                 }
             }
-            else if (isLit) {
-                world.setBlockState(pos, state.with(Properties.LIT, false));
+            else if (isActive) {
+                world.setBlockState(pos, state.with(Properties.ACTIVE, false));
             }
             world.scheduleBlockTick(pos, state.getBlock(), 1);
         }
         else {
             cycle = -1;
-            world.setBlockState(pos, state.with(Properties.LIT, false));
+            world.setBlockState(pos, state.with(Properties.ACTIVE, false));
         }
     }
 

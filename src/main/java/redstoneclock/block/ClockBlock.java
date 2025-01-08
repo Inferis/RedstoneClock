@@ -22,8 +22,6 @@ import net.minecraft.util.math.random.Random;
 import net.minecraft.world.BlockView;
 import net.minecraft.world.World;
 import net.minecraft.world.block.WireOrientation;
-import redstoneclock.networking.OpenEditorS2CPayload;
-import redstoneclock.networking.SaveIntervalsC2SPayload;
 
 public class ClockBlock extends HorizontalFacingBlock implements BlockEntityProvider {
     private final static MapCodec<ClockBlock> CODEC = Block.createCodec(ClockBlock::new);
@@ -33,7 +31,7 @@ public class ClockBlock extends HorizontalFacingBlock implements BlockEntityProv
         setDefaultState(getDefaultState()
             .with(Properties.HORIZONTAL_FACING, Direction.NORTH)
             .with(Properties.POWERED, false)
-            .with(Properties.LIT, false));
+            .with(Properties.ACTIVE, false));
     }
 
     @Override
@@ -45,7 +43,7 @@ public class ClockBlock extends HorizontalFacingBlock implements BlockEntityProv
     protected void appendProperties(StateManager.Builder<Block, BlockState> builder) {
         builder.add(Properties.POWERED);
         builder.add(Properties.HORIZONTAL_FACING);
-        builder.add(Properties.LIT);
+        builder.add(Properties.ACTIVE);
     }
 
     @Override
@@ -82,7 +80,7 @@ public class ClockBlock extends HorizontalFacingBlock implements BlockEntityProv
             return 0;
         }
 
-        if (state.get(Properties.LIT) && world.getBlockEntity(pos) instanceof ClockBlockEntity clockEntity) {
+        if (state.get(Properties.ACTIVE) && world.getBlockEntity(pos) instanceof ClockBlockEntity clockEntity) {
             var oppositeFacing = state.get(Properties.HORIZONTAL_FACING).getOpposite();
             if (direction != Direction.UP && direction != Direction.DOWN && direction != oppositeFacing) {
                 return clockEntity.getSignalStrength();
