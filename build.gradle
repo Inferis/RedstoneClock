@@ -101,9 +101,9 @@ modrinth {
     token = br.readLine(); 
 
     projectId = 'I8TMtgw8' // The ID of your Modrinth project. Slugs will not work.
-    versionNumber = '0.1.1' // The (preferably SemVer) version of the mod. If not specified, it'll use the `version` declaration
-    versionName = '0.1.1-1.21.4' // The version title. If not specified, it'll use the version number
-	changelog = "Fixed bug where intervals weren't being saved."
+    versionNumber = '0.1.2' // The (preferably SemVer) version of the mod. If not specified, it'll use the `version` declaration
+    versionName = '0.1.2-1.21.4' // The version title. If not specified, it'll use the version number
+	changelog = "Added crafting recipe. Oops."
     uploadFile = remapJar // Tells Minotaur to use the remapped jar
     gameVersions = ['1.21.4'] // An array of game versions the version supports
     loaders = ['fabric'] // Self-explanatory.
